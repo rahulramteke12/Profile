@@ -2,7 +2,6 @@ import React from 'react';
 import './Experience.css';
 
 const Experience = () => {
-    // --- ✏️ YOUR DATA HERE ---
     const experiences = [
         {
             role: "Full Stack Developer Intern",
@@ -25,7 +24,6 @@ const Experience = () => {
             ]
         }
     ];
-    // -------------------------
 
     return (
         <section id="experience" className="experience" data-aos="fade-up">

@@ -18,18 +18,18 @@
 }
 
 .certification-card {
-  background: var(--card-bg, #112240); /* Fallback color */
+  background: var(--card-bg, #112240);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden; /* To keep the image within the rounded corners */
+  overflow: hidden;
 }
 
 .certification-image-link {
   display: block;
-  overflow: hidden; /* Ensures the image scaling on hover doesn't break the layout */
+  overflow: hidden;
 }
 
 .certification-image {
@@ -49,7 +49,7 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* This makes the container take up available space */
+  flex-grow: 1;
 }
 
 .certification-card:hover {
@@ -70,7 +70,6 @@
 }
 
 .certification-date {
-  /* This is now combined with the issuer line */
   display: none;
 }
 
@@ -84,7 +83,7 @@
   font-weight: 500;
   transition: background-color 0.3s ease;
   align-self: flex-start;
-  margin-top: auto; /* Pushes the button to the bottom of the card */
+  margin-top: auto;
 }
 
 .certification-link:hover {

@@ -60,7 +60,6 @@ const CardSwap = ({
   const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo(
     () => childArr.map(() => React.createRef()),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [childArr.length]
   );
 
@@ -132,7 +131,6 @@ const CardSwap = ({
     const positionInOrder = order.current.indexOf(clickedIdx);
     if (positionInOrder <= 0) return;
 
-    // Stop auto-swapping and any current animation
     clearInterval(intervalRef.current);
     tlRef.current?.kill();
 
@@ -143,9 +141,7 @@ const CardSwap = ({
 
     const tl = gsap.timeline({
       onComplete: () => {
-        // Restart interval if not hovering
         if (pauseOnHover && container.current.matches(':hover')) {
-          // do nothing, it's paused
         } else {
           intervalRef.current = window.setInterval(swap, delay);
         }
@@ -199,7 +195,6 @@ const CardSwap = ({
       };
     }
     return () => clearInterval(intervalRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
 
   const rendered = childArr.map((child, i) =>

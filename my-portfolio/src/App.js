@@ -23,7 +23,7 @@ function App() {
 
     const handleScroll = () => {
       const sections = ['about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+      const scrollPosition = window.scrollY + 100;
 
       const currentSection = sections.find(sectionId => {
         const section = document.getElementById(sectionId);
@@ -38,14 +38,13 @@ function App() {
       setActiveSection(currentSection || '');
     };
 
-    // Pause animation on tab change or user idle
     const handleVisibilityChange = () => {
       if (document.hidden) {
         setIsAnimationPaused(true);
       }
     };
 
-    const idleTimeout = 30000; // 30 seconds
+    const idleTimeout = 30000;
     let idleTimer;
     const resetIdleTimer = () => {
       if (isAnimationEnabled) {
@@ -60,7 +59,7 @@ function App() {
     window.addEventListener('mousemove', resetIdleTimer);
     window.addEventListener('keydown', resetIdleTimer);
 
-    resetIdleTimer(); // Initial call
+    resetIdleTimer();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

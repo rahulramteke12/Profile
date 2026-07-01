@@ -17,7 +17,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % professions.length);
-    }, 4000); // This duration should match the CSS animation
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [professions.length]);

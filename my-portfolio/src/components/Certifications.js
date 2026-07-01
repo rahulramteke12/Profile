@@ -1,22 +1,17 @@
 import React from 'react';
 import './Certifications.css';
-// --- 🖼️ Add your certificate images here ---
-// Importing the actual certificate images from the assets folder.
 import cert1 from '../assets/certificate1.png';
 import cert2 from '../assets/certificate2.png';
 import cert3 from '../assets/certificate3.png';
-import cert4 from '../assets/certificate4.png'; // Using profile image as a placeholder for the 4th certificate
-// -----------------------------------------
+import cert4 from '../assets/certificate4.png';
 
 const Certifications = () => {
-  // --- ✏️ YOUR DATA HERE ---
-  // I've updated the details to match your certificate images.
   const certifications = [
     {
       title: 'JavaScript Training Completion',
       issuer: 'Spoken Tutorial, IIT Bombay',
       date: 'Issued Nov 2025',
-      link: '#', // This will be replaced by the image path
+      link: '#',
       image: cert1,
     },
     {
@@ -34,14 +29,13 @@ const Certifications = () => {
       image: cert3,
     },
     {
-      title: 'Java Training Completion', // New certificate
+      title: 'Java Training Completion',
       issuer: 'Spoken Tutorial, IIT Bombay',
       date: 'Issued Mar 2024',
       link: '#',
       image: cert4,
     },
   ];
-  // -------------------------
 
   return (
     <section id="certifications" className="certifications" data-aos="fade-up">

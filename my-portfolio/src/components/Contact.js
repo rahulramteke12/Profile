@@ -1,11 +1,9 @@
 import React from 'react';
 import './Contact.css';
 import { RadialNav } from './RadialNav';
-// Using react-icons for brand icons as they are more suitable and available.
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
-  // --- ✏️ YOUR DATA HERE ---
   const contactInfo = {
     email: "rahulramtekehu@gmail.com", 
     linkedin: "https://www.linkedin.com/in/rahul-ramteke-1a186329b/", 
@@ -21,7 +19,6 @@ const Contact = () => {
   const handleLinkOpen = (id) => {
     const item = navItems.find(navItem => navItem.id === id);
     if (item?.href) {
-      // Open mail links in the same tab, others in a new tab
       window.open(item.href, item.href.startsWith('mailto') ? '_self' : '_blank');
     }
   };

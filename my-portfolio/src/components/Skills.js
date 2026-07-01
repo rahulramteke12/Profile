@@ -3,7 +3,6 @@ import './Skills.css';
 import CardSwap, { Card } from './CardSwap';
 
 const Skills = () => {
-  // --- ✏️ YOUR DATA HERE ---
   const skillsData = [
     {
       category: 'Frontend',
@@ -22,7 +21,6 @@ const Skills = () => {
       skills: ['JavaScript', 'TypeScript', 'Python', 'Java'],
     },
   ];
-  // -------------------------
   const description = "I have a diverse skill set that spans across the full stack. On the frontend, I'm proficient with modern technologies like React, JavaScript, and CSS to build responsive and engaging user interfaces. For the backend, I have experience with Node.js, Express, and MongoDB to create robust and scalable server-side applications. I'm also comfortable with essential development tools like Git, GitHub, and Docker, and I'm always eager to learn and adapt to new technologies.";
 
   return (
