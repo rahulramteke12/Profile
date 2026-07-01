@@ -1,0 +1,56 @@
+.radial-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--text-secondary);
+}
+
+.radial-pointer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transform-origin: center;
+}
+
+.radial-pointer-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}
+
+.radial-item-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.menu-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1px solid var(--text-secondary);
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  border-color: var(--secondary-color);
+}
+
+.menu-button-icon {
+  flex-shrink: 0;
+}
+
+.menu-button-label {
+  visibility: hidden;
+  font-size: 14px;
+  width: 0;
+}
