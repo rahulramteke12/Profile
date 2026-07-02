@@ -140,8 +140,21 @@
     flex-direction: column-reverse;
     text-align: center;
   }
+  .header-text h1 {
+    font-size: 2.8rem;
+  }
+  .header-text .header-subtitle {
+    font-size: 1.5rem;
+  }
+  .header-text .header-intro {
+    font-size: 1rem;
+  }
   .header-image-container {
     margin-bottom: 2rem;
+    width: 80vw; /* Use 80% of the viewport width */
+    height: 80vw; /* Keep it square */
+    max-width: 300px; /* Don't let it get bigger than 300px */
+    max-height: 300px;
   }
   .subtitle-container {
     justify-content: center;

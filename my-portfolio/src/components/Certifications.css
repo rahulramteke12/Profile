@@ -90,3 +90,19 @@
   background-color: var(--secondary-color-tint);
   color: var(--text-light);
 }
+
+@media (max-width: 768px) {
+  .certifications {
+    padding: 60px 5%;
+  }
+  .certifications h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .certifications-container {
+    /* On very small screens, switch to a single column to prevent overflow */
+    grid-template-columns: 1fr;
+  }
+}

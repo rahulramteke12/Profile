@@ -130,20 +130,21 @@ const TextType = ({
 
     return () => clearTimeout(timeout);
   }, [
-    currentCharIndex,
     displayedText,
     isDeleting,
+    currentCharIndex,
+    currentTextIndex,
+    textArray,
+    loop,
+    isVisible,
+    initialDelay,
     typingSpeed,
     deletingSpeed,
     pauseDuration,
-    textArray,
-    currentTextIndex,
-    loop,
-    initialDelay,
-    isVisible,
+    onSentenceComplete,
     reverseMode,
+    getRandomSpeed,
     variableSpeed,
-    onSentenceComplete
   ]);
 
   const shouldHideCursor =

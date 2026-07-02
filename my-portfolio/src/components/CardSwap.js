@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useMemo, useRef } from 'react';
+import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useMemo, useRef, useCallback } from 'react';
 import gsap from 'gsap';
 import './CardSwap.css';
 
@@ -37,31 +37,31 @@ const CardSwap = ({
   skewAmount = 6,
   easing = 'elastic',
   children
-}) => {
-  const config =
+}) => { 
+  const config = useMemo(() => (
     easing === 'elastic'
       ? {
-          ease: 'elastic.out(0.6,0.9)',
-          durDrop: 2,
-          durMove: 2,
-          durReturn: 2,
-          promoteOverlap: 0.9,
-          returnDelay: 0.05
-        }
+        ease: 'elastic.out(0.6,0.9)',
+        durDrop: 2,
+        durMove: 2,
+        durReturn: 2,
+        promoteOverlap: 0.9,
+        returnDelay: 0.05
+      }
       : {
-          ease: 'power1.inOut',
-          durDrop: 0.8,
-          durMove: 0.8,
-          durReturn: 0.8,
-          promoteOverlap: 0.45,
-          returnDelay: 0.2
-        };
+        ease: 'power1.inOut',
+        durDrop: 0.8,
+        durMove: 0.8,
+        durReturn: 0.8,
+        promoteOverlap: 0.45,
+        returnDelay: 0.2
+      }
+  ), [easing]);
 
   const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo(
     () => childArr.map(() => React.createRef()),
-    [childArr.length]
-  );
+    [childArr]);
 
   const order = useRef(Array.from({ length: childArr.length }, (_, i) => i));
 
@@ -69,7 +69,7 @@ const CardSwap = ({
   const intervalRef = useRef();
   const container = useRef(null);
 
-  const swap = () => {
+  const swap = useCallback(() => {
     if (order.current.length < 2) return;
 
     const [front, ...rest] = order.current;
@@ -125,9 +125,9 @@ const CardSwap = ({
     tl.call(() => {
       order.current = [...rest, front];
     });
-  };
+  }, [config, refs, cardDistance, verticalDistance]);
 
-  const bringToFront = (clickedIdx) => {
+  const bringToFront = useCallback((clickedIdx) => {
     const positionInOrder = order.current.indexOf(clickedIdx);
     if (positionInOrder <= 0) return;
 
@@ -167,7 +167,7 @@ const CardSwap = ({
     });
 
     order.current = newOrder;
-  };
+  }, [config, refs, cardDistance, verticalDistance, delay, pauseOnHover, swap]);
 
   useEffect(() => {
     const total = refs.length;
@@ -195,7 +195,7 @@ const CardSwap = ({
       };
     }
     return () => clearInterval(intervalRef.current);
-  }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
+  },  [refs, swap, cardDistance, verticalDistance, skewAmount, delay, pauseOnHover]);
 
   const rendered = childArr.map((child, i) =>
     isValidElement(child)

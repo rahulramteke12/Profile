@@ -90,3 +90,17 @@
     width: 100%;
   }
 }
+
+@media (max-width: 450px) {
+  .skills h2 {
+    font-size: 2rem;
+  }
+  .skills-animation-wrapper {
+    min-height: 350px;
+    /* The CardSwap component has a fixed width of 400px.
+       This allows horizontal scrolling within the component on small screens
+       to prevent it from breaking the page layout. */
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}

@@ -6,7 +6,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Certifications from './components/Certifications';
 import Experience from './components/Experience';
-import Navbar from './components/Navbar';
+import PillNav from './components/PillNav';
 import Footer from './components/Footer';
 import AOS from 'aos';
 import Galaxy from './components/Galaxy';
@@ -22,7 +22,7 @@ function App() {
     AOS.init({ duration: 1000 });
 
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       const currentSection = sections.find(sectionId => {
@@ -74,9 +74,28 @@ function App() {
     setIsAnimationEnabled(prevState => !prevState);
   };
 
+  const navItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Certifications', href: '#certifications' },
+    { label: 'Contact', href: '#contact' }
+  ];
+
   return (
     <div className="App">
-      <Navbar activeSection={activeSection} />
+      <PillNav
+        logo={`${process.env.PUBLIC_URL}/logo.jpeg`}
+        logoAlt="Rahul Ramteke Logo"
+        items={navItems}
+        activeHref={`#${activeSection || 'home'}`}
+        baseColor="#0A192F"
+        pillColor="#112240"
+        hoveredPillTextColor="#CCD6F6"
+        pillTextColor="#64FFDA"
+      />
       <Header />
       <main>
         {isAnimationEnabled && <Galaxy
